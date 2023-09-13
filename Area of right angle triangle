@@ -1,0 +1,4 @@
+while True:
+    b = int(input("Base length: "))
+    h = int(input("Height length: "))
+    print((b*h)/2)
