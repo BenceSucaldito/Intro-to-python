@@ -1,0 +1,6 @@
+# Read a string:
+# a = input()
+a = input("What is your name: ")
+# Print a string:
+print("Hello,",a+"!")
+# print(a)
