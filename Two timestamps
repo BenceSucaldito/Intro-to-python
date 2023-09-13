@@ -1,0 +1,31 @@
+print("Input for two timestamps:")
+
+#Timestamp1:
+print("\nTimestamp 1:")
+h1 = int(input("Hour: "))
+m1 = int(input("Minutes: "))
+s1 = int(input("Seconds: "))
+print("Timestamp 1:", str(h1)+":"+str(m1)+":"+str(s1))
+
+#Timestamp2:
+print("\nTimestamp 2:")
+h2 = int(input("Hour: "))
+m2 = int(input("Minutes: "))
+s2 = int(input("Seconds: "))
+print("Timestamp 2:", str(h2)+":"+str(m2)+":"+str(s2))
+
+#Convert:
+#Timestamp1
+hsec1 = h1*3600
+msec1 = m1*60
+t1 = s1 + hsec1 + msec1
+#Timestamp2
+hsec2 = h2*3600
+msec2 = m2*60
+t2 = s2 + hsec2 + msec2
+
+#Calc
+x = t2-t1
+
+#Print
+print("Timestamp 1 is", str(x),"seconds before Timestamp2")
