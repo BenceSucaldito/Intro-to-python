@@ -1,0 +1,2 @@
+n = int(input("Enter a number:"))
+print("Next number:", n+1,"\nPrevious number:", n-1)
