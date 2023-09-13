@@ -1,0 +1,5 @@
+n = int(input("Number of seconds you want to convert:"))
+h = n//3600
+r = n%3600
+m = r/60
+print(str(n), "seconds is equal to:\n"+ str(h), "hours and", str(m), "minutes")
