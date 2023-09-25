@@ -1,0 +1,2 @@
+i = str(input(""))
+print(i[len(i)-len(i)//2:len(i)] + i[0:len(i)-len(i)//2])
