@@ -1,0 +1,8 @@
+f = int(input(""))
+s = int(input(""))
+if f < s:
+    for i in range(f, s+1):
+        print(i)
+elif f >= s:
+    for i in range(f, s-1, -1):
+        print(i)
