@@ -1,0 +1,2 @@
+i = len((str(input(""))).split())
+print(i)
