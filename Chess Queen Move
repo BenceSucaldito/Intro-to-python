@@ -1,0 +1,8 @@
+sq1 = int(input(""))
+sq2 = int(input(""))
+sq3 = int(input(""))
+sq4 = int(input(""))
+if (sq1 - sq3) == (sq2 - sq4) or (sq1 - sq3) == -1*(sq2 - sq4) or sq1 == sq3 or sq2 == sq4:
+    print("YES")
+else:
+    print("NO")
