@@ -1,31 +1,43 @@
 #ref: https://time2code.today/python-level-2/python-exam-grade
 
 # Exam grade program
-marks = int(input(""))
+
 # -------------------------
 # Subprograms
 # -------------------------
 def marks_needed(userScore):
   if userScore >= 80:
-    print("You need 0 marks until the next grade.")
+    i = "{} marks is a grade 9.\nYou need 0 marks until the next grade.".format(userScore)
   elif userScore >= 67:
-    print("You need {} more marks for the next grade".format(80 - userScore))
-  elif: userScore >= 54:
-    print("You need {} more marks for the next grade".format(67 - userScore))
-  elif: userScore >= 41:
-    print("You need {} more marks for the next grade".format(54 - userScore))
-  elif: userScore >= 31:
-    print("You need {} more marks for the next grade".format(41 - userScore))
-  elif: userScore >= 22:
-    print("You need {} more marks for the next grade".format(31 - userScore))
-  elif: userScore >= 13:
-    print("You need {} more marks for the next grade".format(22 - userScore))
-  elif: userScore >= 4:
-    print("You need {} more marks for the next grade".format(13 - userScore))
-  elif: userScore >= 2:
-    print("You need {} more marks for the next grade".format(4 - userScore))
+    i = "{} marks is a grade 8.\nYou need {} more marks for the next grade".format(userScore,80 - userScore)
+  elif userScore >= 54:
+    i = "{} marks is a grade 7.\nYou need {} more marks for the next grade".format(userScore,67 - userScore)
+  elif userScore >= 41:
+    i = "{} marks is a grade 6.\nYou need {} more marks for the next grade".format(userScore,54 - userScore)
+  elif userScore >= 31:
+    i = "{} marks is a grade 5.\nYou need {} more marks for the next grade".format(userScore,41 - userScore)
+  elif userScore >= 22:
+    i = "{} marks is a grade 4.\nYou need {} more marks for the next grade".format(userScore,31 - userScore)
+  elif userScore >= 13:
+    i = "{} marks is a grade 3.\nYou need {} more marks for the next grade".format(userScore,22 - userScore)
+  elif userScore >= 4:
+    i = "{} marks is a grade 2.\nYou need {} more marks for the next grade".format(userScore,13 - userScore)
+  elif userScore >= 2:
+    i = "{} marks is a grade 1.\nYou need {} more marks for the next grade".format(userScore,4 - userScore)
   else: 
-    print("You need {} more marks for the next grade.".format(2-userScore))
+    i = "{} marks is a grade U.\nYou need {} more marks for the next grade.".format(userScore,2-userScore)
+  return i
 # -------------------------
 # Main program
 # -------------------------
+while True:
+  try:
+    marks = input("Input Marks: ")
+    if marks.lower() == "exit":
+      break
+    else:
+      grade = marks_needed(int(marks))
+      print(grade,"\nType 'Exit' to exit program. ")
+  except:
+    print("Not a valid input")
+    
