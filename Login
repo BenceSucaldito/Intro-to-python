@@ -1,0 +1,29 @@
+# PIN program
+attempts = 3
+PIN = "7528"
+# -------------------------
+# Subprograms
+# -------------------------
+def compound():
+  i = input("Enter Pin:\t")
+  if i == PIN:
+    return True
+  else:
+    return False
+
+# -------------------------
+# Main program
+# -------------------------
+while True:
+  if attempts > 0:
+    trigger = compound()
+    if trigger is True:
+      print("You have successfully logged in.")
+      break
+    elif trigger is False:
+      attempts -= 1
+      print("Incorrect password. You have {} attempts left.".format(attempts))
+  else:
+    print("You have exceeded the max amount of login attempts.")
+    break
+     
