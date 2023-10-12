@@ -1,0 +1,42 @@
+# Measurements program
+numbers = [1,2,3]
+disable = False
+# -------------------------
+# Subprograms
+# -------------------------
+def feet_to_inches(feet):
+  return feet * 12
+
+def inches_to_feet(inches):
+  return inches / 12
+  
+def menu():
+  while True:
+    i = int(input("Menu:\n1. Converting feet to inches\n2. Inches to feet\n3. Exit\nEnter a number:  "))
+    if i in numbers:
+      return i
+      break
+    else:
+      menu()
+
+def converter():
+  slc = menu()
+  if slc == 1:
+    fet = int(input("Enter the humber of feet: "))
+    inc = feet_to_inches(fet)
+    print("{} feet is {} inches.".format(fet,inc))
+    return 0
+  if slc == 2:
+    inc = int(input("Enter the number of inches: "))
+    fet = inches_to_feet(inc)
+    print("{} inches is {} feet.".format(inc,fet))
+    return 0
+  if slc == 3:
+    return 1
+# -------------------------
+# Main program
+# -------------------------
+while True:
+  i = converter()
+  if i == 1:
+    break
