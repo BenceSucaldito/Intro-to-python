@@ -1,0 +1,19 @@
+list = [0, 0, 0]
+max_term = 0
+term_count = 0
+def add_list():
+    list[2] = list[0] + list[1]
+    print(list[2])
+    list[0] = list[1]
+    list[1] = list[2]
+    list[2] = 0
+    term_count +=1
+
+i = int(input("Number of terms: "))
+max_term = i
+x = int(input("Enter first term: "))
+list[0] = x
+y= int(input("Enter second term: "))
+list[1] = y
+while term_count < max_term:
+    add_list()
