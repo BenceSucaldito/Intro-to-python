@@ -1,19 +1,11 @@
-list = [0, 0, 0]
-max_term = 0
-term_count = 0
-def add_list():
-    list[2] = list[0] + list[1]
-    print(list[2])
-    list[0] = list[1]
-    list[1] = list[2]
-    list[2] = 0
-    term_count +=1
-
-i = int(input("Number of terms: "))
-max_term = i
-x = int(input("Enter first term: "))
-list[0] = x
-y= int(input("Enter second term: "))
-list[1] = y
-while term_count < max_term:
-    add_list()
+term1 = int(input("Enter first term: "))
+term2 = int(input("Enter second term:"))
+term3 = 0
+max_count = int(input("Enter how many terms you want"))
+print("Term 1: {}\nTerm 2: {}".format(term1,term2))
+for i in range(3,max_count+1):
+    term3 = term1 + term2
+    print("Term {}: {}".format(i, term3))
+    term1 = term2
+    term2 = term3
+    term3 = 0
