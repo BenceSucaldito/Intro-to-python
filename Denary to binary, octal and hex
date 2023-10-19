@@ -30,10 +30,17 @@ def hex_character(number):
     return 0
 
 def den_to_hex(number):
-  hex = number // 16
-  remainder = number % 16
-  hexi = str(hex_character(hex))+str(hex_character(remainder))
-  return hexi
+  rList = []
+  whole = number
+  while whole > 0:
+    remainder = whole % 16
+    whole = whole // 16
+    rList.append(remainder)
+  hex = ""  
+  reverse_rList = list(rList)[::-1]
+  for i in range(len(rList)):
+    hex = hex + str(hex_character(reverse_rList[i]))
+  return hex
 
 def den_to_octal(number):
   rList = []
