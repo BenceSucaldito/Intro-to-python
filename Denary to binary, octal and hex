@@ -1,0 +1,55 @@
+# Denary to binary program
+
+# -------------------------
+# Subprograms
+# -------------------------
+def den_to_bin(number):
+    binary = ""
+    while number > 0:
+        remainder = number % 2
+        binary = str(remainder) + binary
+        number = number // 2
+    return binary
+
+def hex_character(number):
+  if number < 9:
+    return number
+  elif number == 10:
+    return "A"
+  elif number == 11:
+    return "B"
+  elif number == 12:
+    return "C"
+  elif number == 13:
+    return "D"
+  elif number == 14:
+    return "E"
+  elif number == 15:
+    return "F"
+  else:
+    return 0
+
+def den_to_hex(number):
+  hex = number // 16
+  remainder = number % 16
+  hexi = str(hex_character(hex))+str(hex_character(remainder))
+  return hexi
+
+def den_to_octal(number):
+  rList = []
+  whole = number
+  while whole > 0:
+    remainder = whole % 8
+    whole = whole // 8
+    rList.append(remainder)
+  octal = ""  
+  reverse_rList = list(rList)[::-1]
+  for i in range(len(rList)):
+    octal = octal + str(reverse_rList[i])
+  return octal
+    
+# -------------------------
+# Main program
+# -------------------------
+number = int(input("Enter the denary number to convert: "))
+print("Binary: {}\nHexidecimal: {}\nOctal: {}".format(den_to_bin(number),den_to_hex(number),den_to_octal(number)))
