@@ -1,0 +1,187 @@
+X1Y1 = " "
+X1Y2 = " "
+X1Y3 = " "
+X2Y1 = " "
+X2Y2 = " "
+X2Y3 = " "
+X3Y1 = " "
+X3Y2 = " "
+X3Y3 = " "
+turn = "Player 1"
+#Reference P1 = X P2 = O
+
+def check_occupied(coord):
+    if coord == 11 and X1Y1 == " ":
+        return "True"
+    elif coord == 12 and X1Y2 == " ":
+        return "True"
+    elif coord == 13 and X1Y3 == " ":
+        return "True"
+    elif coord == 21 and X2Y1 == " ":
+        return "True"
+    elif coord == 22 and X2Y2 == " ":
+        return "True"
+    elif coord == 23 and X2Y3 == " ":
+        return "True"
+    elif coord == 31 and X3Y1 == " ":
+        return "True"
+    elif coord == 32 and X3Y2 == " ":
+        return "True"
+    elif coord == 33 and X3Y3 == " ":
+        return "True"
+    else:
+        return "False"
+    
+def x_draw(coord):
+    global X1Y1, X1Y2, X1Y3, X2Y1, X2Y2, X2Y3, X3Y1, X3Y2, X3Y3
+    if coord == 11:
+        X1Y1 = "X"
+    elif coord == 12:
+        X1Y2 = "X"
+    elif coord == 13:
+        X1Y3 = "X"
+    elif coord == 21:
+        X2Y1 = "X"
+    elif coord == 22:
+        X2Y2 = "X"
+    elif coord == 23:
+        X2Y3 = "X"
+    elif coord == 31:
+        X3Y1 = "X"
+    elif coord == 32:
+        X3Y2 = "X"
+    elif coord == 33:
+        X3Y3 = "X"
+
+def o_draw(coord):
+    global X1Y1, X1Y2, X1Y3, X2Y1, X2Y2, X2Y3, X3Y1, X3Y2, X3Y3
+    if coord == 11:
+        X1Y1 = "O"
+    elif coord == 12:
+        X1Y2 = "O"
+    elif coord == 13:
+        X1Y3 = "O"
+    elif coord == 21:
+        X2Y1 = "O"
+    elif coord == 22:
+        X2Y2 = "O"
+    elif coord == 23:
+        X2Y3 = "O"
+    elif coord == 31:
+        X3Y1 = "O"
+    elif coord == 32:
+        X3Y2 = "O"
+    elif coord == 33:
+        X3Y3 = "O"
+
+def reset():
+    global X1Y1, X1Y2, X1Y3, X2Y1, X2Y2, X2Y3, X3Y1, X3Y2, X3Y3, turn
+    turn = "Player 1"
+    X1Y1 = " "
+    X1Y2 = " "
+    X1Y3 = " "
+    X2Y1 = " "
+    X2Y2 = " "
+    X2Y3 = " "
+    X3Y1 = " "
+    X3Y2 = " "
+    X3Y3 = " "
+
+def check_winX():
+    #Vertical
+    if X1Y1 == "X" and X1Y2 == "X" and X1Y3 == "X": #done
+        return True
+    elif X2Y1 == "X" and X2Y2 == "X" and X2Y3 == "X": #done
+        return True
+    elif X3Y1 == "X" and X3Y2 == "X" and X3Y3 == "X": #done
+        return True
+    #Horizontal
+    elif X1Y1 == "X" and X2Y1 == "X" and X3Y1 == "X": 
+        return True
+    elif X1Y2 == "X" and X2Y2 == "X" and X3Y2 == "X": 
+        return True
+    elif X1Y3 == "X" and X2Y3 == "X" and X3Y3 == "X": 
+        return True
+    #Diagonal
+    elif X1Y1 == "X" and X2Y2 == "X" and X3Y3 == "X": 
+        return True
+    elif X1Y3 == "X" and X2Y2 == "X" and X3Y1 == "X":
+        return True
+
+def check_winO():
+        #Vertical
+    if X1Y1 == "O" and X1Y2 == "O" and X1Y3 == "O": #done
+        return True
+    elif X2Y1 == "O" and X2Y2 == "O" and X2Y3 == "O": #done
+        return True
+    elif X3Y1 == "O" and X3Y2 == "O" and X3Y3 == "O": #done
+        return True
+    #Horizontal
+    elif X1Y1 == "O" and X2Y1 == "O" and X3Y1 == "O": 
+        return True
+    elif X1Y2 == "O" and X2Y2 == "O" and X3Y2 == "O": 
+        return True
+    elif X1Y3 == "O" and X2Y3 == "O" and X3Y3 == "O": 
+        return True
+    #Diagonal
+    elif X1Y1 == "O" and X2Y2 == "O" and X3Y3 == "O": 
+        return True
+    elif X1Y3 == "O" and X2Y2 == "O" and X3Y1 == "O":
+        return True
+    
+def check_draw():
+    global X1Y1, X1Y2, X1Y3, X2Y1, X2Y2, X2Y3, X3Y1, X3Y2, X3Y3
+    list = [X1Y1, X1Y2, X1Y3, X2Y1, X2Y2, X2Y3, X3Y1, X3Y2, X3Y3]
+    check = 0
+    for i in list:
+        if i != " ":
+            check += 1
+    if check == 9:
+        return True
+
+def start_game():
+    reset()
+    print("3    |   |   \n  ---+---+---\n2    |   |   \n  ---+---+---\n1    |   |   \n   1   2   3")
+    print("Enter coordinates [e.g (1,1) will be input as 11 and (2,3) will be 23].")
+    while True:
+        global turn
+        print(turn)
+        i = input()
+        if check_occupied(int(i)) == "True":
+            if turn == "Player 1":
+                x_draw(int(i))
+                turn = "Player 2"
+            elif turn == "Player 2":
+                o_draw(int(i))
+                turn = "Player 1"
+            new_line = "  ---+---+---"
+            line_3 = "3  {} | {} | {} ".format(X1Y3,X2Y3,X3Y3)
+            line_2 = "2  {} | {} | {} ".format(X1Y2,X2Y2,X3Y2)
+            line_1 = "1  {} | {} | {} ".format(X1Y1,X2Y1,X3Y1)
+            coordinate_line = "   1   2   3"
+            print("{}\n{}\n{}\n{}\n{}\n{}".format(line_3,new_line,line_2,new_line,line_1,coordinate_line))
+            if check_winX() is True:
+                print("Player 1 wins!")
+                break
+            elif check_winO() is True:
+                print("Player 2 wins!")
+                break
+            elif check_draw() is True:
+                print("The game is a draw!")
+                break
+        elif check_occupied(i) == "False":
+            print("Space is occupied. {}, try again.".format(turn))
+    print("Type 'Exit' to end the program or 'Play' to start another game.")
+    while True:
+        try:
+            x = input()
+            if x.lower() == "exit":
+                break
+            elif x.lower() == "play":
+                start_game()
+            else:
+                print("Not a valid response, please try again.")
+        except:
+            print("Not a valid response, please try again.")
+
+start_game()
