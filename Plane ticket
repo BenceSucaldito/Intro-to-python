@@ -1,0 +1,13 @@
+# Airline ticket program
+
+# -------------------------
+# Subprograms
+# -------------------------
+# Function to return truncated airport names
+def airports(departure, arrival):
+  return (departure[0:4] + "-" + arrival[0:4]).upper()
+
+# -------------------------
+# Main program
+# -------------------------
+print(airports("Gatwick", "Amsterdam"))
