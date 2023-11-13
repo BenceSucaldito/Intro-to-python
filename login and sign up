@@ -1,0 +1,37 @@
+passwords = {"test1":"Pass123", "test2":"Pass321"}
+chance = 0
+maxchance = 4
+def login():
+    global chance,maxchance
+    x = str(input("Enter a username: "))
+    if x in passwords:
+        while chance < maxchance:
+            y = str(input("Password: "))
+            if y == passwords.get(x):
+                print("Logged in!")
+                break
+            else:
+                chance += 1 
+                print("Incorrect password. You have {} attempts left.".format(maxchance - chance))
+    else:
+        print("No user found.")
+
+def signup():
+    i = str(input("Enter username: "))
+    if i not in passwords:
+        x = str(input("Input a password: "))
+        y = str(input("Re-enter password: "))
+        if x == y:
+            passwords.update({i:x})
+            print("Successfully added!")
+        else:
+            print("Passwords do not match.")
+    else:
+        print("Username already taken.")
+
+while True:
+    choice = str(input("Type 'Login' or 'Sign up'.\n"))
+    if choice.lower() == "login":
+        login()
+    elif choice.lower() == "sign up" or choice.lower() == "signup":
+        signup()
