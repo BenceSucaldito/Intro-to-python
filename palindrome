@@ -1,0 +1,28 @@
+# Palindrome program
+
+# -------------------------
+# Subprograms
+# -------------------------
+def palindrome(phrase):
+    message = ""
+    for i in phrase:
+        if i.isalpha() or i.isnumeric():
+            message += i
+    m_length = len(message)
+    if m_length % 2 > 0:
+        middle_index = m_length // 2
+        message = message[:middle_index] + message[middle_index + 1:]
+    half = len(message)//2
+    phrase1 = message[:half]
+    phrase2 = (message[half:])[::-1]
+    if phrase1 == phrase2:
+        print("Yes")
+    else:
+        print("No")
+          
+# -------------------------
+# Main program
+# -------------------------
+while True:
+    i = str(input("Enter a phrase: "))
+    palindrome(i.lower())
