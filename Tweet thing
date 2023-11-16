@@ -1,0 +1,23 @@
+# Tweet program
+
+# -------------------------
+# Subprograms
+# -------------------------
+def tweets(message, num_chars):
+  m = message
+  mlist = []
+  nummes = len(message)//num_chars
+  for i in range(nummes):
+    mlist.append(m[0:num_chars])
+    m = m.replace(m[0:num_chars],"")
+  if len(m) > 0:
+    mlist.append(m)
+  return mlist
+
+
+# -------------------------
+# Main program
+# -------------------------
+message = str(input("Enter the message: "))
+max_chars = int(input("How many characters per message? :"))
+print(tweets(message, max_chars))
