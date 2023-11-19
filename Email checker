@@ -1,0 +1,36 @@
+def verify(email):
+    prechars = ["-","_","."]
+    local_address = ""
+    local_dom = ""
+    last_char = "."
+    domain = ""
+    for i in email:
+        if i.isalpha() or i.isnumeric() or i in prechars and last_char not in prechars:
+            local_address += i
+            last_char = i
+        elif i == "@" and last_char not in prechars:
+            domain = email.replace(local_address, "")
+            break
+        else:
+            return "invalid"
+    if "@" in domain:
+        domain = domain.replace("@","",1)
+        dom_count = 0
+        last_char = "."
+        for y in domain:
+            if y.isalpha() or y.isnumeric() or y == "-" and last_char != ".":
+                local_dom += y
+                last_char = y
+                dom_count += 1
+            elif y == "." and last_char != "-" and last_char != "." and dom_count > 2:
+                local_dom += y
+                last_char = y
+                dom_count = 0
+    else:
+        return "invalid"
+
+    return "valid"
+
+while True:
+    i = str(input("Enter your email address:"))
+    print("Email address is {}.".format(verify(i)))
