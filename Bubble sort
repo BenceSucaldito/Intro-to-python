@@ -1,0 +1,26 @@
+#Bence bubble sort thing
+
+numList = [""]# <----- Insert items
+
+def runSorter():
+    global numList
+    new_list = numList
+    indexCount = 0
+    currentNumber = new_list[indexCount]
+    nextNumber = new_list[indexCount + 1]
+    change_count = 0
+    while indexCount < len(numList)-1:
+        currentNumber = new_list[indexCount]
+        nextNumber = new_list[indexCount + 1]
+        if currentNumber > nextNumber:
+            new_list[indexCount] = nextNumber
+            new_list[indexCount + 1] = currentNumber
+            change_count += 1
+        indexCount += 1
+    numList = new_list
+    if change_count > 0:
+        runSorter()
+    else:
+        print(numList)
+    
+runSorter()
