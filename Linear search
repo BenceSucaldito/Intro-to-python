@@ -1,0 +1,8 @@
+dataList = [1,6,43,3,5,6,7,7,5,345,346,456456,34,5,345,]
+
+def dataFind(find):
+    for i in dataList:
+        if i == find:
+            return "Data found in index {}".format(dataList.index(i))
+
+print(dataFind(int(input("Input a value: "))))
