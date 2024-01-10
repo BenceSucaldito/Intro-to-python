@@ -1,0 +1,33 @@
+#Binary Search
+numbers = list(range(1,100,2))
+
+def findNum(num):
+    foundNum = False
+    length = len(numbers)
+    halfLength = round(length/2)
+    index = 0
+    if num > numbers[halfLength]:
+        findList = numbers[halfLength:length]
+        for i in findList:
+            if i == num:
+                foundNum = True
+                index = numbers.index(i)
+                break
+    elif num < numbers[halfLength]:
+        findList = numbers[0:halfLength]
+        for i in findList:
+            if i == num:
+                foundNum = True
+                index = numbers.index(i)
+                break
+    elif num == numbers[halfLength]:
+         index = numbers.index(i)
+         foundNum = True
+#----------------------------------------------------------------------
+    if foundNum:
+        print("\nNumber is in list. Position: {}\n".format(index))
+    else:
+        print("\nNumber not in list.\n")
+
+while True:
+    findNum(int(input("Input a number: ")))
