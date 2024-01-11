@@ -1,0 +1,48 @@
+
+item_dictionary = {'[0]CADBURY DAIR MILK WHOLENUT 49G, 0.70':0.70,
+                   '[1]NICKERS BAR 48G,0.70': 0.70,
+                   '[2]CADBURY DAIRY MILK MILK CARAMEL,0.70':0.70,
+                   '[3]MARS BAR ORIGINAL 51G,0.80':0.80,
+                   '[4]CADBURY FLAKE 32G,0.80':0.80,
+                   '[5]GALAXY CARAMEL STANDARD 48G,0.80':0.80,
+                   '[6]GALAXY MILK CHOCOLATE 46G,0.80':0.80,
+                   '[7]CADBURY STAR BAR 49G,0.60':0.60,
+                   '[8]NESTLE MUNCHIES 52G,0.60':0.60,
+                   '[9]KINDER BUENO 43g,1.00':1.00,
+                   '[10]SNICKERS DUO 83.4G,1.00':1.00}
+
+new_list = []
+# -------------------------
+# Subprograms
+def addToList(itemNum):
+  new_list.append(itemNum)
+  return new_list
+
+def findKey(number):
+    current_index = 0
+    for j in item_dictionary:
+        if current_index == number:
+            return item_dictionary.get(j)
+        else:
+            current_index += 1
+  
+def payment():
+  totalCost = 0
+  for i in new_list:
+      totalCost += findKey(i)
+  return "Total:{}".format(totalCost)
+    
+# -------------------------
+for i in item_dictionary:
+  print(i)
+  
+while True:
+  x = input("Input: ")
+  if x.isnumeric():
+      if int(x) in range(0,len(item_dictionary)):
+          print(addToList(int(x)))
+  elif x == "":
+    print(payment())
+    break
+  else:
+    print("Not a valid input.")
